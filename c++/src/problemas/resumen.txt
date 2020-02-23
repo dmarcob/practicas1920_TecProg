@@ -1,0 +1,36 @@
+
+//**************************
+//Antes de crear, REUTILIZAR
+//**************************
+
+RATIONAL-STRUCT
+    -structs son públicos por defecto
+    -si el constructor simplifica; al hacer suma, llamarlo así:
+        return rational(r.num+(i*r.den), r.den); //Rational+int  
+    -En funciones mostrar y leer, añadir stream por defecto:
+        En .h 
+            void read(Rational& r, std::istream& is = std::cin);
+        En .cc
+            void read(Rational& r, std::istream& is) {}
+            
+RATIONAL-STRUCT-OPERATORS
+   La posición final 2 depende de la posición de los parámetros 1
+               1                        2
+    - operator+(int, double) --> int + double
+    - operator+(double, int) --> double + int
+    - operator<<(stream, char) --> cout << char
+    - operator<<(char, stream) --> char << cout 
+    
+CLASS-STRUCT
+    - Añadimos un espacio de variables más: 1local, 2parametros, 3clase, 4global   
+    - Añadir #pragma once en vez de #ifndef #define #endif
+    - Los metodos auxiliares en el private, no fuera de la clase
+    - Clases por parámetro siempre: const Clase&
+    - Si el método no modifica el objeto -> int metodo(----) const {}
+    - constructor:
+        Rational::Rational(int a, int b): n(a), d(b) {}
+    -Suma commutativa 1)Rational + int -> Es un metodo
+                      2)int + Rational -> funcion que invoca a 1)
+        
+    
+    
