@@ -13,7 +13,7 @@ import java.lang.UnsupportedOperationException;
 // Esto es un mecanismo básico de la herencia en Java que es inevitable en
 // este caso y sobre el que hablaremos más adelante en clase de teoría.
 
-public class StaticStack<T> implements Iterable<T>
+public class StaticStack<T> implements Stack<T> //Iterable<T>
 {
 	// Esta es la única forma que tiene Java de declarar valores inmutables.
 	private static final int MAX = 40;
@@ -28,7 +28,7 @@ public class StaticStack<T> implements Iterable<T>
 	@SuppressWarnings("unchecked")
 	public StaticStack()
 	{
-		datos = (T[])(new Object[MAX]);
+		datos = (T[])(new Object[MAX]); //Reservar MAX punteros (como void* en c++)
 		total = 0;
 	}
 
@@ -36,14 +36,25 @@ public class StaticStack<T> implements Iterable<T>
 	// la pila y devuelva si ha sido posible (o no) meterlo.
 	public boolean push(T t)
 	{
-
+		boolean esPosible = this.total < MAX;
+		if (esPosible)
+		{
+			this.datos[this.total] = t;
+			this.total++;
+		}
+		return esPosible;
 	}
 
 	// TODO: Rellena el código de este método para que borre el último
 	// elemento de la pila y devuelva si ha sido posible (o no) borrarlo.
 	public boolean pop()
 	{
-
+		boolean esPosible = this.total > 0;
+		if (esPosible)
+		{
+			this.total--;
+		}
+		return esPosible;
 	}
 
 	// Esta clase representa a un iterador sobre la pila.
@@ -67,7 +78,7 @@ public class StaticStack<T> implements Iterable<T>
 		//TODO: Devuelve si hay siguiente elemento o no.
 		public boolean hasNext()
 		{
-
+			return i >= 0;
 		}
 
 		// Todos los iteradores deben de implementar un método que devuelva el
@@ -86,7 +97,7 @@ public class StaticStack<T> implements Iterable<T>
 			{
 				// TODO: Devuelve el elemento apuntado por el iterador,
 				// y avanza el iterador.
-
+				return this.stk.datos[i--];
 			}
 		}
 

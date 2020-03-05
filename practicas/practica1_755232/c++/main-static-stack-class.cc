@@ -12,6 +12,7 @@ int main(int argc,char* argv[])
 		ss.push(i);
 
 	static_stack<int>::const_iterator iter = ss.begin();
+
 	while(iter != ss.end())
 	{
 		std::cout<<*iter<<" ";

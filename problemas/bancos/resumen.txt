@@ -1,0 +1,17 @@
+-Para poder hacer:
+	Cuenta** cuentas = new CuentaCorriente(...);
+	//Necesario que CuentaCorriente herede public de cuentas -> class CueCorr : public Cuenta {
+
+-Virtual indica binding dinámico: se ejecuta funcion sobreescrita del hijo
+
+-Desde constructor hijo, invocar constructor del padre
+
+-atributo protected indica visibilidad exclusiva a la clase y a sus hijos 
+
+-Con que haya un método virtual puro hace a la clase abstracta
+
+-Una clase abstracta sin atributos ni métodos implementados es una clase abstracta pura (interfaz en java)
+
+-Si un método invoca a otro virtual en una clase abstracta, ese método se invoca en el hijo (adopta comportamiento, es decir, el this->metodo_virtual pertenece al hijo
+
+

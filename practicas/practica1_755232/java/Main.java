@@ -3,8 +3,9 @@ public class Main
 	// TODO: Define la cabecera de este metodo aprovechando la herencia para que
 	// sea equivalente a declarar los dos metodos siguientes:
 	//
-	// public static void anyadir_elementos(StaticStack<Integer> ss)
-	// public static void anyadir_elementos(DynamicStack<Integer> ss)
+	//public static void anyadir_elementos(StaticStack<Integer> ss)
+	//public static void anyadir_elementos(DynamicStack<Integer> ss)
+	public static void anyadir_elementos(Stack<Integer> ss)
 	{
 		ss.push(42);
 		ss.push(15);
@@ -16,8 +17,9 @@ public class Main
 	// TODO: Define la cabecera de este metodo aprovechando la herencia para que
 	// sea equivalente a declarar los dos metodos siguientes:
 	//
-	// public static void mostrar_elementos(StaticStack<Integer> ss)
-	// public static void mostrar_elementos(DynamicStack<Integer> ss)
+	//public static void mostrar_elementos(StaticStack<Integer> ss)
+	//public static void mostrar_elementos(DynamicStack<Integer> ss)
+	public static void mostrar_elementos(Stack<Integer> ss)
 	{
 		for (Integer i : ss)
 			System.out.print(i+" ");
