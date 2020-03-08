@@ -1,6 +1,12 @@
+//*****************************************************************
+// File:    static-stack-struct.h
+// Author:  Enunciado práctica 1, tecnología de la programación.
+// Date:    08-03-2020
+// Coms:    FIchero interfaz e implementación pila estática genérica con structs.
+//*****************************************************************
 #pragma once
 
-// Interfaz del TAD agrupación genérico. Pre-declaraciones:
+// Interfaz del TAD pila estática. Pre-declaraciones:
 const int MAX = 40; //Límite tamaño de la agrupación, en esta implementación.
 
 template<typename T> struct static_stack;

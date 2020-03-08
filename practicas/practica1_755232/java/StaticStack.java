@@ -1,3 +1,10 @@
+//*****************************************************************
+// File:    StaticStack.java
+// Author:  Diego Marco, 755232
+// Date:    08-03-2020
+// Coms:    Fichero implementación pila estática
+//*****************************************************************
+
 // Similar a los includes de C++, importamos aquellas clases que nos sean utiles
 import java.lang.Iterable;
 import java.util.Iterator;

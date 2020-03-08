@@ -1,3 +1,9 @@
+//*****************************************************************
+// File:    DynamicStack.java
+// Author:  Diego Marco Beisty 755232
+// Date:    08-03-2020
+// Coms:    Fichero implementación pila dinámica
+//*****************************************************************
 import java.lang.Iterable;
 import java.util.Iterator;
 import java.util.NoSuchElementException;

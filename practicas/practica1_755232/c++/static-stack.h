@@ -1,3 +1,9 @@
+//*****************************************************************
+// File:    static-stack.h
+// Author:  Diego Marco Beisty 755232
+// Date:    08-03-2020
+// Coms:    Fichero interfaz e implementación pila estática genérica con clases
+//*****************************************************************
 #pragma once
 
 // Interfaz del TAD pila. Pre-declaraciones:

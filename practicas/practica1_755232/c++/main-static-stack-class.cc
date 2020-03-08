@@ -1,3 +1,9 @@
+//*****************************************************************
+// File:    main-static-stack-class.cc
+// Author:  Enunciado práctica 1, tecnología de la programación.
+// Date:    08-03-2020
+// Coms:    Módulo principal de uso de pila estática con clases
+//*****************************************************************
 #include "static-stack.h"
 #include <iostream>
 

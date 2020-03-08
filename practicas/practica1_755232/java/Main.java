@@ -1,3 +1,9 @@
+//*****************************************************************
+// File:    Main.java
+// Author:  Diego Marco, 755232
+// Date:    08-03-2020
+// Coms:    Módulo principal de uso de pilas (dinámicas y estáticas)
+//*****************************************************************
 public class Main
 {
 	// TODO: Define la cabecera de este metodo aprovechando la herencia para que

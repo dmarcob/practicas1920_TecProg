@@ -1,3 +1,9 @@
+//*****************************************************************
+// File:    MainStaticStack.java
+// Author:  Diego Marco, 755232
+// Date:    08-03-2020
+// Coms:    Módulo principal de uso de uso de pila estática
+//*****************************************************************
 import java.util.Iterator;
 
 public class MainStaticStack

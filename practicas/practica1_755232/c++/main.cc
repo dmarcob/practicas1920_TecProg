@@ -1,3 +1,9 @@
+//*****************************************************************
+// File:    main.cc
+// Author:  Diego Marco Beisty 755232
+// Date:    08-03-2020
+// Coms:    Módulo principal de uso de pilas (dinámicas y estáticas)
+//*****************************************************************
 #include "static-stack.h"
 #include "dynamic-stack.h"
 #include <iostream>
@@ -37,9 +43,9 @@ int main(int argc,char* argv[])
 	static_stack<int>  ss_e;
 	dynamic_stack<int> ss_d;
 
-//anyadir_elementos(ss_e);
+  anyadir_elementos(ss_e);
 	anyadir_elementos(ss_d);
-//mostrar_elementos(ss_e);
+  mostrar_elementos(ss_e);
 	mostrar_elementos(ss_d);
 
 	return 0;
