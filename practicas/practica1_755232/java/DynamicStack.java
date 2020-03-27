@@ -9,7 +9,8 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.lang.UnsupportedOperationException;
 
-public class DynamicStack<T> implements Stack<T> //Iterable<T>
+
+public class DynamicStack<T> implements Stack<T>
 {
 
   private class Node
@@ -32,6 +33,8 @@ public class DynamicStack<T> implements Stack<T> //Iterable<T>
     this.head = null;
   }
 
+  //Cabecera de push y pop idénticas a la clase static_stack para que puedan
+  //implementar la interfaz Stack.(Para polimorfismo de inclusión en Main.java)
   public boolean push(T t)
   {
     this.head = new Node(t, head);

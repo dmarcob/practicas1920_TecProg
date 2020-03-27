@@ -59,12 +59,11 @@ public:
   class const_iterator
   {
   private:
-    //const dynamic_stack<T>& dtk;
+    const dynamic_stack<T>& dtk;
     node* iter;
   public:
-    const_iterator(/*const dynamic_stack& dtk_, */node* iter_)
-    : /*dtk(dtk_),*/
-     iter(iter_) {}
+    const_iterator(const dynamic_stack& dtk_, node* iter_)  : dtk(dtk_),
+      iter(iter_) {}
 
     const_iterator& operator++()
     {
@@ -90,12 +89,12 @@ public:
 
   const_iterator begin() const
   {
-    return const_iterator(/**this,*/ this->head);
+    return const_iterator(*this, this->head);
   }
 
   const_iterator end() const
   {
-    return const_iterator(/**this,*/ nullptr);
+    return const_iterator(*this, nullptr);
   }
 
 };

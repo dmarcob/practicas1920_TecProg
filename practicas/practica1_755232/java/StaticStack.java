@@ -20,7 +20,7 @@ import java.lang.UnsupportedOperationException;
 // Esto es un mecanismo básico de la herencia en Java que es inevitable en
 // este caso y sobre el que hablaremos más adelante en clase de teoría.
 
-public class StaticStack<T> implements Stack<T> //Iterable<T>
+public class StaticStack<T> implements Stack<T> 
 {
 	// Esta es la única forma que tiene Java de declarar valores inmutables.
 	private static final int MAX = 40;

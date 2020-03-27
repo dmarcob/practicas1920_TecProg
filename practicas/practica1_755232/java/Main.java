@@ -11,6 +11,7 @@ public class Main
 	//
 	//public static void anyadir_elementos(StaticStack<Integer> ss)
 	//public static void anyadir_elementos(DynamicStack<Integer> ss)
+
 	public static void anyadir_elementos(Stack<Integer> ss)
 	{
 		ss.push(42);
@@ -25,6 +26,7 @@ public class Main
 	//
 	//public static void mostrar_elementos(StaticStack<Integer> ss)
 	//public static void mostrar_elementos(DynamicStack<Integer> ss)
+	
 	public static void mostrar_elementos(Stack<Integer> ss)
 	{
 		for (Integer i : ss)
