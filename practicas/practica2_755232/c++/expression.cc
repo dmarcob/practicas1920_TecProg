@@ -1,7 +1,14 @@
-#include "expression.h"
+//*****************************************************************
+// File:    expression.cc
+// Author:  Diego Marco Beisty 755232
+// Date:    01-04-2020
+// Coms:    implementacion modulo expression
+//*****************************************************************
+
 #include <iostream>
 #include <sstream>
 #include <stack>
+#include "expression.h"
 #include "symboltab.h"
 #include "hojaConstante.h"
 #include "hojaVariable.h"
@@ -13,8 +20,6 @@
 #include "ramaDivi.h"
 
 using namespace std;
-
-
 
 void Expression::parse(const string& s)
 {

@@ -1,3 +1,10 @@
+//*****************************************************************
+// File:    ramaDivi.cc
+// Author:  Diego Marco Beisty 755232
+// Date:    01-04-2020
+// Coms:    implementacion modulo ramaDivi
+//*****************************************************************
+
 #include "ramaDivi.h"
 #include "prioridad.h"
 

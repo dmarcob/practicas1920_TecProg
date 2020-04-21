@@ -1,3 +1,10 @@
+//*****************************************************************
+// File:    ramaSuma.cc
+// Author:  Diego Marco Beisty 755232
+// Date:    01-04-2020
+// Coms:    implementacion modulo ramaSuma
+//*****************************************************************
+
 #include "ramaSuma.h"
 
 RamaSuma::RamaSuma(Nodo* i_, Nodo* d_) : Rama(i_, d_) {}

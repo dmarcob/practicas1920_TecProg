@@ -1,7 +1,13 @@
+//*****************************************************************
+// File:    hojaConstante.cc
+// Author:  Diego Marco Beisty 755232
+// Date:    01-04-2020
+// Coms:    implementacion modulo hojaConstante
+//*****************************************************************
+
 #include "hojaConstante.h"
-
+#include <sstream>
 HojaConstante::HojaConstante(float dato_) : dato(dato_) {}
-
 
 float HojaConstante::eval(const SymbolTab& syms)const
 {
@@ -10,5 +16,7 @@ float HojaConstante::eval(const SymbolTab& syms)const
 
 string HojaConstante::to_string()const
 {
-  return std::to_string(this->dato);
+  std::ostringstream ss;
+  ss << this->dato;
+  return  ss.str();
 }

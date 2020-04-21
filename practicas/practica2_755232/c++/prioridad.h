@@ -1,3 +1,10 @@
+//*****************************************************************
+// File:    prioridad.h
+// Author:  Diego Marco Beisty 755232
+// Date:    01-04-2020
+// Coms:    interfaz modulo prioridad
+//*****************************************************************
+
 #include "nodo.h"
 class Prioridad
 {

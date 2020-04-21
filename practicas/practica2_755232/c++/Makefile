@@ -1,5 +1,5 @@
 PROG:=main
-SRCS:=main.cc expression.cc
+SRCS:=main.cc expression.cc ramaSuma.cc ramaResta.cc ramaMult.cc ramaDivi.cc prioridad.cc hojaVariable.cc hojaConstante.cc rama.cc
 
 CXX:=g++ -std=c++11
 

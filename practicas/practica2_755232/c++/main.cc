@@ -1,6 +1,13 @@
-#include "expression.h"
+//*****************************************************************
+// File:    main.cc
+// Author:  Diego Marco Beisty 755232
+// Date:    01-04-2020
+// Coms:    Módulo principal de uso de expresiones matematicas
+//*****************************************************************
 #include <iostream>
+#include "expression.h"
 #include "symboltab.h"
+
 using namespace std;
 
 int main()

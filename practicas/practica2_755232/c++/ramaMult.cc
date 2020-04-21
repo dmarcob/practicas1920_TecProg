@@ -1,3 +1,10 @@
+//*****************************************************************
+// File:    ramaMulti.cc
+// Author:  Diego Marco Beisty 755232
+// Date:    01-04-2020
+// Coms:    implementacion modulo ramaMulti
+//*****************************************************************
+
 #include "ramaMult.h"
 #include "prioridad.h"
 

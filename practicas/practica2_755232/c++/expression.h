@@ -1,3 +1,10 @@
+//*****************************************************************
+// File:    expression.h
+// Author:  Diego Marco Beisty 755232
+// Date:    01-04-2020
+// Coms:    interfaz modulo expression
+//*****************************************************************
+
 #pragma once
 
 #include <iostream>
