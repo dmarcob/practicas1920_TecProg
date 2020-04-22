@@ -69,8 +69,63 @@ public:
   Producto (double volume_, double weight_, const string& name_);
 };
 
-
-class Contenedor : public Almacen {
+class Generico : public Carga {
 public:
-  Contenedor(double volume_);
+  Generico (double volume_, double weight_, const string& name_);
+};
+
+class Toxico : public Carga {
+public:
+  Toxico (double volume_, double weight_, const string& name_);
+};
+
+
+class SerVivo : public Carga {
+public:
+  SerVivo (double volume_, double weight_, const string& name_);
+};
+
+
+template<class T>
+class Contenedor : public Almacen{};
+
+template<>
+class Contenedor<Toxico> : public Almacen{
+public:
+  Contenedor<Toxico>(double volume_): Almacen("Contenedor de productos toxicos", 0, volume_) {}
+
+  bool guardar(Toxico& c) {
+    Almacen::guardar(c);
+  }
+
+};
+
+template<>
+class Contenedor<SerVivo> : public Almacen{
+public:
+  Contenedor<SerVivo>(double volume_): Almacen("Contenedor de seres vivos", 0, volume_) {}
+
+  bool guardar(SerVivo& c) {
+    Almacen::guardar(c);
+  }
+
+};
+
+template<>
+class Contenedor<Generico> : public Almacen{
+public:
+  Contenedor<Generico>(double volume_): Almacen("Contenedor de genericos", 0, volume_) {}
+
+  bool guardar(Producto& c) {
+    Almacen::guardar(c);
+  }
+  bool guardar(Contenedor<Generico>& c) {
+    Almacen::guardar(c);
+  }
+  bool guardar(Contenedor<Toxico>& c) {
+    Almacen::guardar(c);
+  }
+  bool guardar(Contenedor<SerVivo>& c) {
+    Almacen::guardar(c);
+  }
 };

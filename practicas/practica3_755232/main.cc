@@ -54,4 +54,3 @@ Camion [10 m3] [120.9 kg]
 	//contenedor_toxico.guardar(otro_contenedor_toxico); //Esto no deberia compilar
 	//contenedor_servivo.guardar(otro_contenedor_servivo); //Esto no deberia compilar
 }
-
