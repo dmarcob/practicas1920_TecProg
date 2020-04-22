@@ -6,11 +6,11 @@
 //*****************************************************************
 #include "practica3.h"
 #include <iostream>
-//#include <stdexcept>
 #include <sstream>
 
 //***********Metodos clase Cosa***************************
-Cosa::Cosa(const string& name_,double weight_, double volume_) : name(name_), weight(weight_), volume(volume_) {};
+Cosa::Cosa(const string& name_,double weight_, double volume_) : name(name_),
+  weight(weight_), volume(volume_) {};
 string Cosa::nombre() const {
   return this->name;
 }
@@ -30,30 +30,23 @@ Carga::Carga(const string& name_, double weight_, double volume_) :
 
 string Carga::to_string(int desplazamiento) const {
     ostringstream oss;
-    oss << string(desplazamiento,' ')<< this->name << " [" << this->volume << " m3] [" << this-> weight << " kg]" << endl;
+    oss << string(desplazamiento,' ')<< this->name << " [" << this->volume
+    << " m3] [" << this-> weight << " kg]" << endl;
     string str = oss.str();
     return str;
-  }
+}
 
 
-
-
-/*////////////////////////////////////
-//BORRAR
-//string Carga::toString() const { return name + "holaaa";}
-////////////////////////////////////*/
 
 //************Metodos clase Almacen*************
-Almacen::Almacen(const string& name_, double weight_,double capacity_) : Cosa(name_, weight_, capacity_), capacity(capacity_) {}
+Almacen::Almacen(const string& name_, double weight_,double capacity_) :
+    Cosa(name_, weight_, capacity_), capacity(capacity_) {}
 
 bool Almacen::guardar( Cosa& c) {
     if (c.volumen() > this->capacity) {
       return false;
     } else {
       Cosa* obj = &c;
-      //if (dynamic_cast<Camion*>(obj)) {
-        //throw std::invalid_argument( "No se puede guardar un camion " );
-      //}
       this->contenido.push_back(obj);
       this->capacity -= c.volumen();
       this->weight += c.peso();
@@ -74,29 +67,23 @@ string Almacen::to_string(int desplazamiento) const {
 }
 
 
-//*************Metodos clase Camion*****************
+//*************Metodos clase Camion*********************
 Camion::Camion(double capacity_) :
  Almacen("Camion", 0, capacity_) {}
 
-//*************Metodos clase Generico*******************
+//*************Metodos clase Producto*******************
 Producto::Producto(double volume_, double weight_, const string& name_) :
    Carga(name_, weight_, volume_) {}
 
-   //*************Metodos clase Generico*******************
+   //*************Metodos clase Generico****************
 Generico::Generico(double volume_, double weight_, const string& name_) :
     Carga(name_, weight_, volume_) {}
 
-//*************Metodos clase Toxico*******************
+//*************Metodos clase Toxico*********************
 Toxico::Toxico(double volume_, double weight_, const string& name_) :
    Carga(name_, weight_, volume_) {}
 
 
-
-//*************Metodos clase Toxico*******************
+//*************Metodos clase SerVivo********************
 SerVivo::SerVivo(double volume_, double weight_, const string& name_) :
   Carga(name_, weight_, volume_) {}
-
-
-
-//************Metodos clase Contenedor******************
-//Contenedor::Contenedor(double volume_) : Almacen("Contenedor", 0, volume_) {}
