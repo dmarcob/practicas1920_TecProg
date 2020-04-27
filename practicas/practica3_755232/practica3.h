@@ -114,7 +114,7 @@ public:
 
   //Añado la restricción de que solo se podrá guardar un objeto de tipo Toxico
   bool guardar(Toxico& c) {
-    Almacen::guardar(c);
+    return Almacen::guardar(c);
   }
 
 };
@@ -125,7 +125,7 @@ public:
   Contenedor<SerVivo>(double volume_): Almacen("Contenedor de seres vivos", 0, volume_) {}
 
   bool guardar(SerVivo& c) {
-    Almacen::guardar(c);
+    return Almacen::guardar(c);
   }
 
 };
@@ -136,15 +136,15 @@ public:
   Contenedor<Generico>(double volume_): Almacen("Contenedor de genericos", 0, volume_) {}
 
   bool guardar(Producto& c) {
-    Almacen::guardar(c);
+    return Almacen::guardar(c);
   }
   bool guardar(Contenedor<Generico>& c) {
-    Almacen::guardar(c);
+    return Almacen::guardar(c);
   }
   bool guardar(Contenedor<Toxico>& c) {
-    Almacen::guardar(c);
+    return Almacen::guardar(c);
   }
   bool guardar(Contenedor<SerVivo>& c) {
-    Almacen::guardar(c);
+    return Almacen::guardar(c);
   }
 };
