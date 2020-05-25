@@ -14,5 +14,5 @@ void Fichero::actualizarTam(int size_) {
     this->size = size_;
   } else {
     cout <<"ERROR nuevo tamaño fichero negativo: AÑADIR EXCEPCION" << endl;
-}
+  }
 }

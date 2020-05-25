@@ -5,24 +5,39 @@
 // Coms:
 //*****************************************************************
 #include "directorio.h"
+#include "excepcion.h"
 #include <sstream>
 #include <iostream>
 
 Directorio::Directorio(const string& name_) : Nodo(name_, 0) {
 }
 
-bool Directorio::insertar(Nodo* n) {
-  ContenidoDir::const_iterator it = contenido.find(n->nombre());
-  if (it == contenido.end()) {
-    //Caso el nodo a insertar no existe
-    contenido.insert(pair<string, Nodo*>(n->nombre(), n));
-    this->size += n->tamano();
-    return true;
-  } else {
-    cout << n->nombre()<< " ya existe en directorio: AÑADIR EXCEPCIÓN AQUÍ"<< endl;
-    return false;
+void Directorio::updateTam() {
+  ContenidoDir::const_iterator it;
+  this->size = 0;
+  for (it = contenido.begin(); it != contenido.end(); it++) {
+      this->size += it->second->tamano();
   }
 }
+
+bool Directorio::insertar(Nodo* n) {
+  ContenidoDir::const_iterator it = contenido.find(n->nombre());
+  try {
+   if (it == contenido.end()) {
+     //Caso el nodo a insertar no existe
+     contenido.insert(pair<string, Nodo*>(n->nombre(), n));
+     this->size += n->tamano();
+     return true;
+    }
+    else {
+        throw existe_nodo_insertar_error();
+    }
+  }
+  catch(arbol_ficheros_error& e) {
+    cout <<"Exception: " << e.what() << endl;
+  }
+    return false;
+  }
 
 
 void Directorio::vaciar() {
@@ -40,6 +55,7 @@ void Directorio::vaciar() {
 
 
 bool Directorio::eliminar(Nodo* n) {
+  updateTam();
   ContenidoDir::const_iterator it = contenido.find(n->nombre());
   if (it != contenido.end()) {
       if (Directorio* d = dynamic_cast<Directorio*>(n)) {
@@ -62,7 +78,7 @@ string Directorio::listarNom() const {
   for (it = contenido.begin(); it != contenido.end(); it++) {
       str.append(it->first + "\n");
   }
-  return str;
+  return str.substr(0, str.size()-1);
 }
 
 string Directorio::listarNomTam() const {
@@ -72,4 +88,14 @@ string Directorio::listarNomTam() const {
       oss << it->first << " " << it->second->tamano() << " B" << endl;
   }
   return oss.str();
+}
+
+bool Directorio::existe(const string& name, Nodo*& nodo){
+  ContenidoDir::const_iterator it = contenido.find(name);
+  if (it != contenido.end()) {
+    nodo = it->second;
+    return true;
+  } else {
+    return false;
+  }
 }
