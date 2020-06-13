@@ -15,11 +15,10 @@
 data Nodo = Fichero String Integer | Directorio String Integer [Nodo] deriving (Show, Eq)
 data ArbolDirectorios = Raiz String Integer [Nodo] deriving Show
 
-a = Raiz "/" 350 [Directorio "usr" 300 [Directorio "bin" 300 [Fichero "g++" 100, Fichero "vi" 200] ], Directorio "sbin" 50 [Fichero "ghc" 50] ] 
 
 
 
---------------------------------- (a) ----------------------------------------------------
+--------------------------------- (b) ----------------------------------------------------
 tamNodo :: Nodo -> Integer
 tamNodo (Fichero _ t) = t
 tamNodo (Directorio _ t _)= t
@@ -52,5 +51,19 @@ stat :: ArbolDirectorios -> [String] -> Integer
 stat (Raiz _ tamanyo _ ) [] = tamanyo
 stat (Raiz _ _ hijos) lista  = statAux hijos lista
 
+------------------------------ (c) -------------------------------------------------------
+
+findAux :: [Nodo] -> [String]-> [[String]]
+findAux [] _ = []
+findAux (x:xs) historial = func x ++ (findAux xs historial)
+      where
+           func x = [historial ++ [nombreNodo x]] ++ findAux (hijos x) (historial ++ [nombreNodo x])
+
+find :: ArbolDirectorios -> [[String]]
+find (Raiz n _ hijos) = [] : (findAux hijos [])
+
+
+
+a = Raiz "/" 350 [Directorio "usr" 300 [Directorio "bin" 300 [Fichero "g++" 100, Fichero "vi" 200] ], Directorio "sbin" 50 [Fichero "ghc" 50] ] 
 main = do
-    print $ stat a ["usr"]
+    print $ find a
