@@ -151,9 +151,11 @@ bool Polygon::contains(const Point& x) const {
 //Especialización de la función collide para el caso de dos
 //círculos
 template<>
-bool collide<Circle>(Circle a, Circle b) {
+bool collide<Circle>( Circle& a,  Circle& b) {
   //Si la distancia entre los centros de a y de b es menor que
   //la suma de sus radios, entonces a y b colisionan.
+  std::cout << "Especializacion circulos" << std::endl;
+
   Point acentro = a.getcentro();
   Point bcentro = b.getcentro();
   double distanciax = pow(acentro.getx() - bcentro.getx(), 2.0);
@@ -165,11 +167,12 @@ bool collide<Circle>(Circle a, Circle b) {
 //Especialización de la función collide para el caso de dos
 //rectangulos
 template<>
-bool collide<Rectangle>(Rectangle a, Rectangle b) {
+bool collide<Rectangle>( Rectangle& a, Rectangle& b) {
   //Si se cumple la condición de que el valor de la coordenada máxima x e y
   //del rectangulo a es superior a la coordenada mínima x e y del rectangulo b,
   //y además la coordenada mínima de rectangulo a es inferior a la coordenada
   //máxima del rectangulo b (y viceversa), entonces los rectangulos colisionan.
+  std::cout << "Especializacion rectangulos" << std::endl;
   Point abl = a.getbl(); //botton left corner rectangulo a
   Point  bbl = b.getbl(); //botton left corner rectangulo b
   //Puntos máximo y mínimo del rectangulo a

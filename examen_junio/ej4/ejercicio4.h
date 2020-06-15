@@ -82,7 +82,7 @@ public:
 template<class T, class S>
 //Si cualquier punto de a está contenido en b ó cualquier punto de b
 //está contenido en a, entonces a y b colisionan.
-bool collide(T a, S b) {
+bool collide( T& a, S& b) {
   bool colisionan = false;
   for ( Point* p : b.points()) {
       if (a.contains(*p)) colisionan = true;
@@ -93,12 +93,12 @@ bool collide(T a, S b) {
   return colisionan;
 }
 
+
 template<class T, class S>
-bool collide_any(T objeto, std::list<S*> lista) {
+bool collide_any(T& objeto, std::list<S*> lista) {
   bool colisionan = false;
   for (S* s : lista) {
-      //if (collide(objeto, *s)) colisionan = true;
-      s->points();
+      if (collide(objeto, *s)) colisionan = true;
   }
   return colisionan;
 }

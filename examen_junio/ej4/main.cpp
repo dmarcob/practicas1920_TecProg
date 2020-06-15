@@ -59,15 +59,24 @@ Point p11(5,2);
 Rectangle r5(p7, p8);
 Rectangle r6(p9, p10);
 Rectangle r7(p11, p10);
-if (collide(r5, r6)) cout << "colisionan" << endl; //Colisionan
-if (collide(r5, r7)) cout << "colisionan" << endl; //No colisionan
+//if (collide(r5, r6)) cout << "colisionan" << endl; //Colisionan
+//if (collide(r5, r7)) cout << "colisionan" << endl; //No colisionan
 
 
 //-----------------collide_any
 list<Objeto*> u;
-u.push_back(&r5);
+list<Rectangle*> j;
+list<Circle*> d;
+u.push_back(&r6);
 u.push_back(&c1);
-collide_any(r, u);
+j.push_back(&r5);
+j.push_back(&r7);
+d.push_back(&c1);
+d.push_back(&c1);
+//if (collide_any(r5, u)) cout << "colision lista" << endl;
+//if (collide_any(r5, j)) cout << "colision lista" << endl;
+if (collide_any(c1, d)) cout << "colision lista" << endl;
+
 
   return 0;
 }
