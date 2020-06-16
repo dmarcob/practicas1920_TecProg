@@ -1,5 +1,5 @@
 ------------------------------------------------------------------
---Autor: Diego Marco, 755232
+--Autor: Diego Marco Beisty, 755232
 --Fichero: ejercicio3.hs
 --Fecha: 17-06-2020
 --Coms: Ejercicio 3, junio 2020.
