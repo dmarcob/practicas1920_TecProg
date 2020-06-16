@@ -14,69 +14,102 @@ int main() {
   //   ------> x
   //  |
   //  | y
-//--------------------punto
-  Point p1(5.3,1.8);
-  Point p2(5.2,2);
-  Point* p3 = p1.maxNewPoint(p2);
-  //cout << p3->getx() << endl;
-  //cout << p3->gety() << endl;
 
-//--------------------rectangulo
-  list<Point*> l;
-  Rectangle r(p1, p2);
-  l = r.points();
-  for (auto v : l)
-      //    std::cout << v->getx() << "," << v->gety()<< "\n";
 
-  Point p4(2.4,12);
-//  if (r.contains(p4)) cout << "contenido" << endl;
-  //--------------------circulo
-    list<Point*> z;
-  Circle c(p2, 2.5);
-  z = c.points();
-  //for (auto v : z)
-        //  std::cout << v->getx() << "," << v->gety()<< "\n";
+//--------------------------------------------------
+  cout << "------------TEST rectangulo" << endl;
+  list<Point*> l1;
+  Point p1(1,4.5);
+  Point p2(5.3, 2.1);
+  Rectangle r1(p1, p2);
+  l1 = r1.points();
+  cout << "Lista de puntos generada:" << endl;
+  for (Point* p : l1) {
+          cout << *p << endl;
+  }
+  Point p3(2.4,12);
+  Point p4(2.3, 3);
+  if (r1.contains(p3)) cout << "Rectangulo contiene a p3" << endl;
+  if (r1.contains(p4)) cout << "Rectangulo contiene a p4" << endl;
 
-  //cout << c.contains(p1) << endl;
-//----------------------Polygon
- list<Point*> t;
- Point p5(8.25,1.82);
- t.push_back(&p1);
- t.push_back(&p2);
- Polygon p(t);
-  //if  (p.contains(p5)) cout << "contiene" << endl;
 
-//-----------------------collide
+  //--------------------------------------------------
+  cout << endl <<"------------TEST circulo" << endl;
+  list<Point*> l2;
+  Point p5(5.2, 6.1);
+  Point p6(1,1);
   Circle c1(p5, 2.5);
-//if (collide(c1, c)) cout << "colisionan" << endl;
-
-Point p7(2,3);
-Point p8(4,1);
-Point p9(3,2);
-Point p10(6,0);
-Point p11(5,2);
-
-Rectangle r5(p7, p8);
-Rectangle r6(p9, p10);
-Rectangle r7(p11, p10);
-//if (collide(r5, r6)) cout << "colisionan" << endl; //Colisionan
-//if (collide(r5, r7)) cout << "colisionan" << endl; //No colisionan
+  l2 = c1.points();
+  cout << "Lista de puntos generada:" << endl;
+  for (Point* p : l2) {
+         cout << *p << endl;
+  }
+  if (c1.contains(p5)) cout << "Circulo contiene a p5" << endl;
+  if (c1.contains(p6)) cout << "Circulo contiene a p6" << endl;
 
 
-//-----------------collide_any
-list<Objeto*> u;
-list<Rectangle*> j;
-list<Circle*> d;
-u.push_back(&r6);
-u.push_back(&c1);
-j.push_back(&r5);
-j.push_back(&r7);
-d.push_back(&c1);
-d.push_back(&c1);
-//if (collide_any(r5, u)) cout << "colision lista" << endl;
-//if (collide_any(r5, j)) cout << "colision lista" << endl;
-if (collide_any(c1, d)) cout << "colision lista" << endl;
+  //--------------------------------------------------
+  cout << endl <<"------------TEST polygon" << endl;
+ list<Point*> l3;
+ Point p7(8.25,1.82);
+ Point p8(6.25,2.82);
+ Point p9(2.25,8.82);
+ Point p10(3.25,5.82);
+ l3.push_back(&p7);
+ l3.push_back(&p8);
+ l3.push_back(&p9);
+ Polygon pol1(l3);
+ for (Point* p : l3) {
+        cout << *p << endl;
+ }
+ if  (pol1.contains(p10)) cout << "Polygon contiene a p10" << endl;
+ if  (pol1.contains(p7)) cout << "Polygon contiene a p7" << endl;
 
+
+ //--------------------------------------------------
+ cout << endl <<"------------TEST funcion collide" << endl;
+Point p11(2,3);
+Point p12(4,1);
+Point p13(3,2);
+Point p14(6,0);
+Point p15(5,2);
+
+Rectangle r2(p11, p12);
+
+Circle c2(p11, 3.7);
+Circle c3(p12, 5);
+//Caso generico
+if (collide(r2, c2)) cout << "Colisión entre rectangulo y circulo" << endl;
+//Caso generico
+if (collide(r2, pol1)) cout << "Colisión entre rectangulo y poligono" << endl;
+//Caso especializada entre circulos
+if (collide(c2, c3)) cout << "Colisión entre circulo y circulo" << endl; //Colisionan
+//Caso especializada entre rectangulos
+if (collide(r2, r2)) cout << "Colisión entre rectangulo y rectangulo" << endl; //Colisionan
+
+
+//--------------------------------------------------
+cout << endl <<"------------TEST funcion collide_any" << endl;
+list<Objeto*> lo;
+list<Rectangle*> lr;
+list<Circle*> lc;
+Rectangle r5(p1, p2);
+Rectangle r6(p13, p14);
+Rectangle r7(p15, p14);
+lo.push_back(&r6);
+lo.push_back(&c1);
+lo.push_back(&pol1);
+lr.push_back(&r5);
+lr.push_back(&r7);
+lc.push_back(&c1);
+lc.push_back(&c1);
+
+//Caso generico
+if (collide_any(r5, lo)) cout << "colision entre rectangulo y lista genericos" << endl;
+//Caso especializacion rectangulo con rectangulo
+if (collide_any(r5, lr)) cout << "colision entre rectangulo y lista de rectangulos" << endl;
+//Caso especializacion circulo con circulo
+if (collide_any(c1, lc)) cout << "colision entre circulo y lista de circulos lista" << endl;
 
   return 0;
 }

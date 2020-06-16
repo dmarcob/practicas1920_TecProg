@@ -2,11 +2,11 @@
 // Autor: Diego Marco Beisty, 755232
 // Fecha: 17/06/2020
 // Fichero: ejercicio4.cpp
-// Coms:
+// Coms: Fichero implementación ejercicio 4
 //*****************************************************
 #include "ejercicio4.h"
-#include <cmath>
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 Point::Point(double x_,double y_) : x(x_),y(y_) {};
@@ -42,6 +42,18 @@ list<Point*> Rectangle::points() {
   return l;
 }
 
+bool Point::operator<(const Point& p1) {
+  return this->x < p1.getx() and this->y < p1.gety();
+}
+
+bool Point::operator>(const Point& p1) {
+  return this->x > p1.getx() and this->y > p1.gety();
+}
+
+ostream& operator<<(ostream& os, const Point& p1) {
+  os <<"("<< p1.getx() << ", " << p1.gety() << ")";
+}
+
 
 Point Rectangle::getbl() const {
   return this->bl;
@@ -65,8 +77,8 @@ Circle::Circle(Point& centro_, double radio_) : centro(centro_), radio(radio_){}
 
 list<Point*> Circle::points() {
   list<Point*> l;
-  //Puesto que cos(alfa) = x / radio -> x = cos(alfa) * radio
-  //Puesto que sen(alfa) = y /radio -> y = sen(alfa) * radio
+  //Puesto que cos(alfa) = x / radio ->  x = cos(alfa) * radio
+  //Puesto que sen(alfa) = y /radio ->   y = sen(alfa) * radio
   //Con alfa = 11.25 grados (en radianes) para obtener 32 puntos.
   double anguloRad = 11.25 * PI / 180; //ángulo en radianes
   for (int i = 0; i < 32; i++) {
@@ -92,7 +104,6 @@ Point Circle::getcentro() const {
 double Circle::getradio() const {
   return this->radio;
 }
-
 
 Polygon::Polygon(list<Point*> l_) : l(l_) {};
 
@@ -131,6 +142,7 @@ Point* Polygon::minListPoint() const{
 }
 
 
+
 std::list<Point*> Polygon::points() {
   return this->l;
 }
@@ -154,8 +166,6 @@ template<>
 bool collide<Circle>( Circle& a,  Circle& b) {
   //Si la distancia entre los centros de a y de b es menor que
   //la suma de sus radios, entonces a y b colisionan.
-  std::cout << "Especializacion circulos" << std::endl;
-
   Point acentro = a.getcentro();
   Point bcentro = b.getcentro();
   double distanciax = pow(acentro.getx() - bcentro.getx(), 2.0);
@@ -172,7 +182,6 @@ bool collide<Rectangle>( Rectangle& a, Rectangle& b) {
   //del rectangulo a es superior a la coordenada mínima x e y del rectangulo b,
   //y además la coordenada mínima de rectangulo a es inferior a la coordenada
   //máxima del rectangulo b (y viceversa), entonces los rectangulos colisionan.
-  std::cout << "Especializacion rectangulos" << std::endl;
   Point abl = a.getbl(); //botton left corner rectangulo a
   Point  bbl = b.getbl(); //botton left corner rectangulo b
   //Puntos máximo y mínimo del rectangulo a
@@ -181,7 +190,5 @@ bool collide<Rectangle>( Rectangle& a, Rectangle& b) {
   //Puntos máximo y mínimo del rectángulo b
   Point* bmax = bbl.maxNewPoint(b.gettr());
   Point* bmin = bbl.minNewPoint(b.gettr());
-
-  return amax->getx() > bmin->getx() and amin->getx() < bmax ->getx()
-      and amax->gety() > bmin->gety() and amin->gety() < bmax ->gety();
+  return *amax > *bmin and *amin < *bmax;
 }
