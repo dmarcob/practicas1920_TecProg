@@ -3,7 +3,7 @@ Prácticas de la asignatura Tecnología de la programación del curso 2019-2020
 En las prácticas 1-4 se ha trabajado la POO con C++  
 En las prácticas 5-7 se ha trabajado el lenguaje funcional Haskell  
 ###  TAD en c++
-    Directorio:   practica1/  
+    Directorio:   practicas/practica1  
     Calificación: 10
 ### Herencia y polimorfismo
     Directorio:   practicas/practica2
